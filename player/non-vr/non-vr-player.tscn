@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2w56vp8p8bxp"]
+
+[ext_resource type="Script" path="res://player/non-vr/non-vr-player.gd" id="1_c07wq"]
+
+[node name="NonVRPlayer" type="Node3D"]
+script = ExtResource("1_c07wq")
+
+[node name="HeadPivot" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="HeadPivot"]
+unique_name_in_owner = true
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RestartXRBtn" type="Button" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "RESTART WITH XR"

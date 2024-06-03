@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://140jnxnrx3gi"]
+
+[ext_resource type="Script" path="res://player/vr/vr-player.gd" id="1_p78f4"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_335sh"]
+radius = 0.05
+height = 0.1
+radial_segments = 32
+rings = 16
+
+[node name="VRPlayer" type="Node3D"]
+script = ExtResource("1_p78f4")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="LeftController" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="HandMesh" type="MeshInstance3D" parent="XROrigin3D/LeftController"]
+mesh = SubResource("SphereMesh_335sh")
+
+[node name="RightController" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+tracker = &"right_hand"
+pose = &"aim"
+
+[node name="HandMesh" type="MeshInstance3D" parent="XROrigin3D/RightController"]
+mesh = SubResource("SphereMesh_335sh")

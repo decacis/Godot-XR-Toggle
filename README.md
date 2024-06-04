@@ -7,7 +7,7 @@ This repository also includes an example of a project that can run VR and non-VR
 
 ## Installing
 
-You can add this plugin to your project using the [Asset Library](https://godotengine.org/asset-library/asset/3033). Alternatively, you can download it from the [GitHub releases page](https://github.com/decacis/godot_xr_toggle/releases) and just place it into your project.
+You can add this plugin to your project using the [Asset Library](https://godotengine.org/asset-library/asset/3033). Alternatively, you can download it from the [GitHub releases page](https://github.com/decacis/Godot-XR-Toggle/releases) and just place it into your project.
 
 Once you put the files in your project, head on to the Project Settings -> Plugins and enable the plugin there:
 

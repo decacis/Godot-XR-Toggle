@@ -39,19 +39,5 @@ func _ready() -> void:
 func _restart_with_xr() -> void:
 	# Only runs when exported (either debug or release)
 	if OS.has_feature("template"):
-		var pid : int = -1
-		match OS.get_name():
-			"Windows":
-				pid = OS.create_process("cmd.exe", ["/c", "\"%s\"" % OS.get_executable_path() + " --xr-mode on --restart-with-xr"])
-			"Linux":
-				pid = OS.create_process("bash", ["-c", "\"%s\"" % OS.get_executable_path() + " --xr-mode on --restart-with-xr"])
-			_:
-				print("Unsupported OS.")
-		
-		# Process created, now quit.
-		if pid != -1:
-			get_tree().quit()
-		
-		else:
-			# TODO: Unable to create process for some reason. Inform the user.
-			pass
+		OS.set_restart_on_exit(true, ["--xr-mode", "on", "--restart-with-xr"])
+		get_tree().quit()

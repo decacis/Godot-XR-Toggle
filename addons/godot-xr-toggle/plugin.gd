@@ -33,13 +33,25 @@ func _enter_tree() -> void:
 	_create_export_plugin()
 	_create_toggle_control()
 	
-	# Add input grip threshold to the project settings
+	# Add android to forced XR enabled platforms
 	_define_project_setting(
 			"godot_xr_toggle/export/platforms_force_mode",
 			TYPE_DICTIONARY,
-			PROPERTY_HINT_NONE ,
+			PROPERTY_HINT_NONE,
 			"",
 			{"android": true})
+	
+	# Add android to forced XR enabled platforms
+	_define_project_setting(
+			"godot_xr_toggle/export/exclude_gdextensions_from_export",
+			TYPE_DICTIONARY,
+			PROPERTY_HINT_NONE,
+			"",
+			{
+				"windows": [
+					"godotopenxrvendors"
+				]
+			})
 	
 	add_export_plugin(export_plugin)
 	add_control_to_container(EditorPlugin.CONTAINER_TOOLBAR, xr_toggle)

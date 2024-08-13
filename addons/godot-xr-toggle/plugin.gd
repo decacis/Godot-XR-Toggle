@@ -39,7 +39,8 @@ func _enter_tree() -> void:
 			TYPE_DICTIONARY,
 			PROPERTY_HINT_NONE,
 			"",
-			{"android": true})
+			{"android": true}
+	)
 	
 	# Add android to forced XR enabled platforms
 	_define_project_setting(
@@ -48,10 +49,12 @@ func _enter_tree() -> void:
 			PROPERTY_HINT_NONE,
 			"",
 			{
-				"windows": [
-					"godotopenxrvendors"
-				]
-			})
+				"windows": [],
+				"linux": [],
+				"macos": [],
+				"android": []
+			}
+	)
 	
 	add_export_plugin(export_plugin)
 	add_control_to_container(EditorPlugin.CONTAINER_TOOLBAR, xr_toggle)

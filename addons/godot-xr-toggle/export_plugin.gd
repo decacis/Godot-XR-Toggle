@@ -5,7 +5,7 @@ extends EditorExportPlugin
 const PATH_EXTENSION_DEF = "res://.godot/extension_list.cfg"
 
 var gdextensions_exclude_list : Array
-var extension_definition_buffer : String
+var extension_definition_buffer : String = "default"
 
 
 func _get_name() -> String:
@@ -64,6 +64,8 @@ func _export_file(path : String, _type : String, _features : PackedStringArray) 
 # Restore gdextension list
 func _export_end() -> void:
 	gdextensions_exclude_list.clear()
-	var file_extension_list := FileAccess.open(PATH_EXTENSION_DEF, FileAccess.WRITE)
-	file_extension_list.store_string(extension_definition_buffer)
-	file_extension_list.close()
+	if extension_definition_buffer != "default":
+		var file_extension_list := FileAccess.open(PATH_EXTENSION_DEF, FileAccess.WRITE)
+		file_extension_list.store_string(extension_definition_buffer)
+		file_extension_list.close()
+		extension_definition_buffer = "default"
